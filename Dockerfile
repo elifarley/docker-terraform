@@ -20,6 +20,7 @@ RUN apk update && \
     unzip \
     wget && \
     wget -P /tmp https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip && \
-    unzip /tmp/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin && \
+    unzip /tmp/terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/bin \
+      -i terraform '*aws' terraform-provis{'*file','*exec'} && \
     rm -rf /tmp/* && \
     rm -rf /var/tmp/*
